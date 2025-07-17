@@ -1,0 +1,48 @@
+[
+  {
+    "id": 101,
+    "name": "Wireless Bluetooth Headphones",
+    "price": 50,
+    "category": "Electronics",
+    "inStock": true,
+    "rating": 4.5,
+    "brand": "SoundMagic"
+  },
+  {
+    "id": 103,
+    "name": "Stainless Steel Water Bottle",
+    "price": 15.99,
+    "category": "Home & Kitchen",
+    "inStock": false,
+    "rating": 4.8,
+    "brand": "HydroLife"
+  },
+  {
+    "id": 104,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "category": "Footwear",
+    "inStock": true,
+    "rating": 4.3,
+    "brand": "Nike"
+  },
+  {
+    "id": 105,
+    "name": "LED Desk Lamp",
+    "price": 22.49,
+    "category": "Home Office",
+    "inStock": true,
+    "rating": 4.7,
+    "brand": "LumaBright"
+  },
+  {
+    "price": 500,
+    "name": "mobile",
+    "id": 106
+  },
+  {
+    "price": 500,
+    "name": "laptop",
+    "id": 107
+  }
+]
