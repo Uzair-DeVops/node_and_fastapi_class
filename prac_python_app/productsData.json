@@ -1,0 +1,61 @@
+{
+  "title": "Featured Electronics",
+  "products": [
+    {
+      "id": 1,
+      "name": "Sony WH-1000XM5 Wireless Headphones",
+      "brand": "Sony",
+      "price": 349.99,
+      "inStock": true,
+      "rating": 4.8,
+      "category": "Audio",
+      "description": "Industry-leading noise cancellation headphones with premium sound and long battery life.",
+      "icon": "🎧"
+    },
+    {
+      "id": 2,
+      "name": "Logitech G502 Hero Gaming Mouse",
+      "brand": "Logitech",
+      "price": 49.99,
+      "inStock": false,
+      "rating": 4.6,
+      "category": "Gaming",
+      "description": "High-performance gaming mouse with customizable DPI settings and RGB lighting.",
+      "icon": "🖱️"
+    },
+    {
+      "id": 3,
+      "name": "LG UltraFine 4K Monitor",
+      "brand": "LG",
+      "price": 399.99,
+      "inStock": true,
+      "rating": 4.7,
+      "category": "Monitors",
+      "description": "A stunning 4K monitor ideal for creative professionals with USB-C connectivity.",
+      "icon": "🖥️"
+    },
+    {
+      "id": 4,
+      "name": "Apple MacBook Air M2",
+      "brand": "Apple",
+      "price": 1099.00,
+      "inStock": true,
+      "rating": 4.9,
+      "category": "Laptops",
+      "description": "The redesigned MacBook Air with M2 chip, ultra-thin design, and all-day battery life.",
+      "icon": "💻"
+    },
+    {
+      "id": 5,
+      "name": "Samsung Galaxy Tab S8",
+      "brand": "Samsung",
+      "price": 699.99,
+      "inStock": false,
+      "rating": 4.5,
+      "category": "Tablets",
+      "description": "Powerful Android tablet with S Pen, great for productivity and entertainment.",
+      "icon": "📱"
+    }
+
+  ]
+}

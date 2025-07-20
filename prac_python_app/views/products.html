@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Featured Electronics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center text-blue-600 mb-10">Featured Electronics</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      
+
+      {% for product in products.products %}
+
+      <!-- 🔁 Repeat this card 7 times and modify values for practice -->
+      <div class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="text-[140px] text-center">{{ product.icon }}</div>
+        <div class="p-4 flex flex-col h-full">
+          <h2 class="text-lg font-semibold mb-1">{{ product.name }}</h2>
+          <p class="text-sm text-gray-600 mb-2">{{ product.brand }} • {{ product.category }}</p>
+          <p class="text-gray-700 text-sm  mb-2">
+            {{ product.description }}          </p>
+
+          <div class="mt-2px">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-green-600 font-bold text-lg">${{ product.price }}</span>
+              <span class="text-yellow-500 font-semibold">⭐ {{ product.rating }}</span>
+            </div>
+            <span class="inline-block px-3 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full">
+            {% if product.inStock %}
+              In Stock
+            {% else %}
+              Out of Stock
+            {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+      <!-- 📦 Copy & change for 6 more products -->
+
+    </div>
+  </div>
+
+</body>
+</html>
