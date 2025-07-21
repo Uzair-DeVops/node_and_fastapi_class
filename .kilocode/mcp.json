@@ -38,6 +38,20 @@
         "-y",
         "@modelcontextprotocol/server-memory"
       ]
+    },
+    "tavily": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "tavily-mcp@0.2.3"
+      ],
+      "env": {
+        "TAVILY_API_KEY": "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"
+      }
+    },
+    "figma-dev-mode": {
+      "type": "sse",
+      "url": "http://127.0.0.1:3845/sse"
     }
   }
 }

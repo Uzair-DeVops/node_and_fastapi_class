@@ -1,54 +1,62 @@
 const fs = require("fs");
+const Product = require("../models/product_schema");
 
-const data = fs.readFileSync("data.json", "utf-8");
-const jsonData = JSON.parse(data);
 
-exports.readAllProducts = (req, res) => {
-  res.send(jsonData);
+exports.readAllProducts = async (req, res) => {
+  const data = await Product.find();
+  res.status(200).send(data);
 };
 
-exports.createNewProduct = (req, res) => {
-  const newProduct = req.body;
-  // id generation logic
-  let lastId = 0;
-  jsonData.forEach((product) => {
-    if (product.id > lastId) {
-      lastId = product.id;
-    }
-  });
-  newProduct.id = lastId + 1;
-  jsonData.push(newProduct);
-  fs.writeFileSync("data.json", JSON.stringify(jsonData, null, 2));
-  res.json(newProduct);
-};
 
-exports.getProductById = (req, res) => {
-  const productId = req.params.id;
-  const product = jsonData.find((product) => product.id == productId);
-  res.json(product);
-};
 
-exports.updateProductById = (req, res) => {
-  const productId = req.params.id;
+exports.createNewProduct = async (req, res) => {
   const newData = req.body;
-  let product = jsonData.find((product) => product.id == productId);
-  product = { ...product, ...newData };
-  jsonData.forEach((item, index) => {
-    if (item.id == productId) {
-      jsonData[index] = product;
-    }
-  });
-  fs.writeFileSync("data.json", JSON.stringify(jsonData, null, 2));
-  res.json(product);
+  console.log(newData);
+  await Product.create(newData);
+  res.status(201).json({
+   message: "Product created successfully",
+   data: newData
+ });
 };
 
-exports.DeleteProductById = (req, res) => {
+
+
+exports.getProductById = async (req, res) => {
   const productId = req.params.id;
-  jsonData.forEach((product, index) => {
-    if (product.id == productId) {
-      jsonData.splice(index, 1);
-    }
+  const data = await Product.findById(productId);
+  res.status(200).send(data);
+};
+
+
+
+exports.updateProductById = async (req, res) => {
+  const productId = req.params.id;
+  const data = req.body;
+  const updatedProduct = await Product.findByIdAndUpdate(productId, data, { new: true });
+
+  if (!updatedProduct) {
+    return res.status(404).json({ message: "Product not found" });
+  }
+
+  res.status(200).json({
+    message: "Product updated successfully",
+    newData: updatedProduct.toObject()
   });
-  fs.writeFileSync("data.json", JSON.stringify(jsonData, null, 2));
-  res.send("Product deleted");
+};
+
+
+
+exports.deleteProductById = async (req, res) => {
+  const productId = req.params.id;
+
+  const product = await Product.findById(productId);
+  if (!product) {
+    return res.status(404).json({ message: "Product not found" });
+  }
+
+  const data = await Product.deleteOne(product);
+  res.status(200).send({
+    message: "Product deleted successfully",
+  });
+  
 };
