@@ -1,21 +1,20 @@
-from fastapi import APIRouter , Request , Response
+from fastapi import APIRouter , Request , Response , Depends
 import json
 from controllers.product_controllers import read_all_products , read_product_by_id ,create_product ,delete_product_by_id,update_product_by_id
 from fastapi.responses import JSONResponse , HTMLResponse , PlainTextResponse
-
+from database import connect_to_database
 
 
 router = APIRouter()
 
 
 
-
-
 @router.get("")
-async def read_products(request: Request, response: Response):
-    data = await read_all_products(request, response)
-    return data
-
+async def read_all_products(Table = Depends(connect_to_database)):
+    products = []
+    for product in Table.find():
+        products.append(serialize_mongo(product))
+    return JSONResponse(content = products , status_code=200)
 
 @router.get("/{id}")
 async def read_sinlge_product(request: Request, response: Response):
