@@ -28,19 +28,21 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <% let counter = 1%>
+                    <% data.forEach((contact, index) => { %>
                     <tr>
-                      <td>1</td>
-                      <td>Alfred</td>
-                      <td>Kuhlman</td>
-                      <td>alfred@test.com</td>
-                      <td>98989898</td>
+                      <td><%= counter++ %></td>
+                      <td><%= contact.firstName %></td>
+                      <td><%= contact.lastName %></td>
+                      <td><%= contact.email %></td>
+                      <td><%= contact.phone %></td>
                       <td width="150">
-                        <a href="/show-contact" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="/update-contact" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                      <a href="/show-contact/<%= contact._id %>" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                        <a href="/update-contact/<%= contact._id %>" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                        <a href="/delete-contact/<%= contact._id %>" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="new confirm('Are you sure?')"><i class="fa fa-times"></i></a>
                       </td>
                     </tr>
-
+                    <% }); %>
         
                   </tbody>
                 </table> 

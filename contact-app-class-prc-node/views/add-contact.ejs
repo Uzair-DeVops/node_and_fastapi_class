@@ -7,21 +7,22 @@
             <div class="card">
               <div class="card-header card-title">
                 <strong>Add New Contact</strong>
-              </div>           
+              </div>   
+              <form action="/add-contact" method="post">
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group row">
                       <label for="first_name" class="col-md-3 col-form-label">First Name</label>
                       <div class="col-md-9">
-                        <input type="text" name="first_name" id="first_name" class="form-control">
+                        <input type="text" name="firstName" id="first_name" class="form-control">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="last_name" class="col-md-3 col-form-label">Last Name</label>
                       <div class="col-md-9">
-                        <input type="text" name="last_name" id="last_name" class="form-control">
+                        <input type="text" name="lastName" id="last_name" class="form-control">
                       </div>
                     </div>
 
@@ -48,13 +49,14 @@
                     <hr>
                     <div class="form-group row mb-0">
                       <div class="col-md-9 offset-md-3">
-                          <button type="submit" class="btn btn-primary">Save</button>
+                          <button type="submit" class="btn btn-primary">Save</button> 
                           <a href="/" class="btn btn-outline-secondary">Cancel</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              </form>
             </div>
           </div>
         </div>

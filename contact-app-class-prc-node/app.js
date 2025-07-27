@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./database.js";
 import ejs from "ejs";
-import contactRoutes from "./routes/contact_routes.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
 // DOTENV
 dotenv.config({ path: "./config.env" });
