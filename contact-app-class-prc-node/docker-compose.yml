@@ -6,7 +6,6 @@ services:
       - "7000:7000"
     environment:
       - MONGO_URI=mongodb://uzair:uzairyasin123@mongodb-container:27017/my_database?authSource=admin
-  
       - PORT=7000
     networks:
       - node-app-network 
