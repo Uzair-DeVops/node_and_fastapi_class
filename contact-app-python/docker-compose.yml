@@ -1,0 +1,20 @@
+services:
+    python-app: 
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+        volumes:
+            - .:/contact-app-python
+        environment:
+            - PORT=8000
+            - MONGO_URI=mongodb://uzair:uzairyasin123@mongodb-container:27017/my_database_python?authSource=admin
+        networks:
+            - python-network
+
+networks:
+    python-network:
+        external: true
+        
+    
