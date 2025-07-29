@@ -1,6 +1,6 @@
 FROM node:18
 
-WORKDIR /server
+WORKDIR /contact-app-class-prc-node
 
 COPY package.json .
 
